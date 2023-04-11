@@ -1,4 +1,3 @@
-import './App.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -22,6 +21,7 @@ const Layout = () => {
 }
 
 const router = createBrowserRouter([
+
   {
     path: '/',
     element: <Layout />,
@@ -38,9 +38,14 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login />,
       },
-    ]
+    ],
+
   }
-])
+],
+  {
+    basename: "/codershop",
+  }
+)
 
 function App() {
   return (
