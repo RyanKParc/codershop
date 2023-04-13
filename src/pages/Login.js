@@ -1,11 +1,16 @@
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getRedirectResult } from 'firebase/auth';
 
 import googleLogo from '../assets/google_logo.png'
 
 import { auth, signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect } from "../firebase/firebase.config";
 
+
 import SignupForm from '../components/SignupForm';
+
+import { useDispatch } from 'react-redux';
+import { addUser, removeUser } from '../redux/coderSlice';
 
 // const auth = getAuth();
 
@@ -40,6 +45,10 @@ import SignupForm from '../components/SignupForm';
 
 const Login = () => {
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const auth = getAuth();
+
   useEffect(() => {
     (async () => {
       const response = await getRedirectResult(auth);
@@ -59,7 +68,19 @@ const Login = () => {
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
     const userDocRef = await createUserDocumentFromAuth(user);
+    dispatch(
+      addUser({
+        _id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        image: user.photoURL,
+      }))
+    setTimeout(() => {
+      navigate("/")
+    }, 1500)
   }
+
+
 
   return (
     <div className='login page'>

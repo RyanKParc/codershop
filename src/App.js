@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 
+import { productsData } from './firebase/api';
+
 import {
   createBrowserRouter,
   Outlet,
@@ -29,6 +31,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        loader: productsData,
       },
       {
         path: '/cart',
