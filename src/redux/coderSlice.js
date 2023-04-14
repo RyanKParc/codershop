@@ -9,9 +9,22 @@ export const coderSlice = createSlice({
     name: 'codershop',
     initialState,
     reducers: {
-        // addToCart: (state, action) => {
-        //     state.productData = action.payLoad
-        // },
+        addToCart: (state, action) => {
+            const item = state.productData.find((item) =>
+
+                item.name === action.payload.name
+
+            )
+
+
+            if (item) {
+                item.quantity += action.payload.quantity;
+            } else {
+                state.productData.push(action.payload)
+            }
+
+
+        },
         addUser: (state, action) => {
             state.userInfo = action.payLoad;
         },
