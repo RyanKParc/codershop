@@ -7,7 +7,6 @@ const ProductsCard = ({ products }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const pageId = products.name.stringValue.toLowerCase();
-    console.log(pageId)
     const toProduct = () => {
         navigate(`/product/${pageId}`, {
             state: {
