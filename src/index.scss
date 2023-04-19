@@ -82,7 +82,7 @@ header {
   }
 }
 
-.products-card-box {
+.product-card-box {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
@@ -90,7 +90,7 @@ header {
   max-width: 1440px;
 }
 
-.productscard{
+.productscard {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -98,7 +98,7 @@ border: 1px solid var(--primary-color);
 width: fit-content;
 cursor: pointer;
 
-  .productscard-image{
+  .productscard-image {
     width: 100px;
   }
 }

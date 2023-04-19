@@ -19,12 +19,12 @@ export const coderSlice = createSlice({
             state.userInfo = null;
         },
     }
-
-})
+});
 
 export const {
     addToCart,
     addUser,
     removeUser
 } = coderSlice.actions;
+
 export default coderSlice.reducer;

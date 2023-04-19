@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { auth } from '../firebase/firebase.config';
+import { auth } from '../api/firebase.config';
 import { removeUser } from '../redux/coderSlice';
 import { useDispatch } from 'react-redux';
 import {
@@ -11,10 +11,7 @@ import {
 
 const Header = () => {
 
-    // const userInfo = useSelector((state) => state.codershop.userInfo);
-
     const dispatch = useDispatch();
-
     const handleSignOut = () => {
         signOut(auth).then(() => {
             dispatch(removeUser())
@@ -50,8 +47,6 @@ const Header = () => {
                         <Link to='/'>
                             <li onClick={handleSignOut}>Log Out</li>
                         </Link>
-                        {/* {userInfo && <p>{userInfo.name}</p>} */}
-
                     </ul>
                 </div>
 
