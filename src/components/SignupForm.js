@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../firebase/firebase.config";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../api/firebase.config";
 
 const defaultFormFields = {
     displayName: '',

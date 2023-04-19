@@ -1,8 +1,24 @@
 import React from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { auth } from '../api/firebase.config';
+import { removeUser } from '../redux/coderSlice';
+import { useDispatch } from 'react-redux';
+import {
+    signOut
+} from 'firebase/auth'
 
 const Header = () => {
+
+    const dispatch = useDispatch();
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+            dispatch(removeUser())
+        }).catch((error) => {
+        });
+    }
+
     return (
         <header>
             <nav>
@@ -27,6 +43,9 @@ const Header = () => {
                             <div className="login">
                                 Login
                             </div>
+                        </Link>
+                        <Link to='/'>
+                            <li onClick={handleSignOut}>Log Out</li>
                         </Link>
                     </ul>
                 </div>
