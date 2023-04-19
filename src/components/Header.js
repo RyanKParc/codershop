@@ -11,7 +11,7 @@ import {
 
 const Header = () => {
 
-    // const userInfo = useSelector((state) => state.codershop.userInfo);
+    const productData = useSelector((state) => state.coder.productData);
 
     const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ const Header = () => {
                         <li>Shop</li>
                         <Link to='/cart'>
                             <div className="cart">
-                                Cart
+                                Cart <span>({productData.length})</span>
                             </div>
                         </Link>
 

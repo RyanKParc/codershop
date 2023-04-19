@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { addToCart } from "../redux/coderSlice";
 
 const Product = () => {
+  const dispatch = useDispatch();
   const [productPageInfo, setProductPageInfo] = useState({});
+  const [baseQuant, setBaseQuant] = useState(1);
   const location = useLocation();
   useEffect(() => {
     setProductPageInfo(location.state.item);
@@ -25,10 +29,21 @@ const Product = () => {
         <p>${productPrice}</p>
       </div>
       <div>
-        Quantity: <span>0</span>
+        <button onClick={() => setBaseQuant(baseQuant === 1 ? baseQuant = 1 : baseQuant - 1)}>decrease quantity</button>
+        Quantity: <span>{baseQuant}</span>
+        <button onClick={() => { setBaseQuant(baseQuant + 1) }}>increase quantity</button>
       </div>
 
-      <button>Add to cart</button>
+      <button onClick={() => {
+        dispatch(addToCart({
+          name: productPageInfo.name.stringValue,
+          image: productPageInfo.image.stringValue,
+          price: productPageInfo.price.integerValue,
+          category: productPageInfo.category.stringValue,
+          description: productPageInfo.description.stringValue,
+          quantity: baseQuant,
+        }))
+      }}>Add to cart</button>
     </div>
   );
 };

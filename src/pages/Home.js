@@ -11,7 +11,7 @@ const Home = () => {
     }, [data]);
     return (
         <div>
-            This Home
+            Our products
             <Products products={products} />
         </div>
     )
