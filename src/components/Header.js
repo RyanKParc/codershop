@@ -14,7 +14,6 @@ const Header = () => {
     const productData = useSelector((state) => state.coder.productData);
 
     const dispatch = useDispatch();
-
     const handleSignOut = () => {
         signOut(auth).then(() => {
             dispatch(removeUser())

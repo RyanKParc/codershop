@@ -10,7 +10,7 @@ const ProductsCard = ({ products }) => {
     const toProduct = () => {
         navigate(`/product/${pageId}`, {
             state: {
-                item: products,
+                item: product,
             }
         })
     }

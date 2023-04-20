@@ -23,6 +23,7 @@ header {
   position: sticky;
   width: 100%;
 }
+
 header nav {
   max-width: 1440px;
   margin: 0 auto;
@@ -31,9 +32,11 @@ header nav {
   justify-content: space-between;
   padding: 12px 32px;
 }
+
 header nav .logo img {
   width: 60px;
 }
+
 header nav .nav-menu ul {
   list-style: none;
   display: flex;
@@ -59,16 +62,18 @@ header nav .nav-menu ul {
   padding: 0 12px;
   cursor: pointer;
 }
+
 .login .loginbtn img {
   width: 32px;
   height: auto;
 }
+
 .login .loginbtn:hover {
   background-color: var(--primary-color);
   color: #fff;
 }
 
-.products-card-box {
+.product-card-box {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
@@ -85,6 +90,7 @@ header nav .nav-menu ul {
   width: fit-content;
   cursor: pointer;
 }
+
 .productscard .productscard-image {
   width: 100px;
 }
@@ -95,15 +101,20 @@ header nav .nav-menu ul {
   gap: 32px;
   align-items: center;
 }
+
 .cartitem-row .cartitem-delete {
   cursor: pointer;
 }
+
 .cartitem-row .cartitem-delete:hover {
   color: white;
   background-color: var(--primary-color);
 }
+
 .cartitem-row .cartitem-image {
   height: 150px;
   -o-object-fit: contain;
-     object-fit: contain;
-}/*# sourceMappingURL=index.css.map */
+  object-fit: contain;
+}
+
+/*# sourceMappingURL=index.css.map */

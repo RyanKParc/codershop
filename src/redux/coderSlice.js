@@ -51,8 +51,7 @@ export const coderSlice = createSlice({
         }
 
     }
-
-})
+});
 
 export const {
     addToCart,
@@ -62,4 +61,5 @@ export const {
     removeUser,
     deleteItem,
 } = coderSlice.actions;
+
 export default coderSlice.reducer;
