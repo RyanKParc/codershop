@@ -23,7 +23,6 @@ export const coderSlice = createSlice({
         incrementQuant: (state, action) => {
             const item = state.productData.find((item) => item.name === action.payload.name);
 
-
             if (item) {
                 item.quantity++
             }
@@ -39,7 +38,7 @@ export const coderSlice = createSlice({
             }
         },
         addUser: (state, action) => {
-            state.userInfo = action.payLoad;
+            state.userInfo = action.payload;
         },
         removeUser: (state) => {
             state.userInfo = null;

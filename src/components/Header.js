@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { auth } from '../api/firebase.config';
+import { auth } from '../server/firebase.config';
 import { removeUser } from '../redux/coderSlice';
 import { useDispatch } from 'react-redux';
 import {
@@ -12,6 +12,7 @@ import {
 const Header = () => {
 
     const productData = useSelector((state) => state.coder.productData);
+    const userInfo = useSelector((state) => state.coder.userInfo);
 
     const dispatch = useDispatch();
     const handleSignOut = () => {
@@ -46,9 +47,10 @@ const Header = () => {
                                 Login
                             </div>
                         </Link>
-                        <Link to='/'>
+                        {userInfo && <Link to='/'>
                             <li onClick={handleSignOut}>Log Out</li>
-                        </Link>
+                        </Link>}
+
                     </ul>
                 </div>
             </nav>

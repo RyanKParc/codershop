@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { getRedirectResult } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../redux/coderSlice';
-import { auth, signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect } from "../api/firebase.config";
+import { auth, signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect } from "../server/firebase.config";
 import googleLogo from '../assets/google_logo.png'
 import SignupForm from '../components/SignupForm';
 

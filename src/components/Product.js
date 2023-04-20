@@ -17,8 +17,6 @@ const Product = () => {
   const productDescription = location.state.item.description.stringValue;
   const productPrice = location.state.item.price.integerValue;
 
-  //   console.log(productPageInfo.name.stringValue);
-
   return (
     <div>
       <div>Product Info page</div>
@@ -31,7 +29,7 @@ const Product = () => {
       <div>
         <button onClick={() => setBaseQuant(baseQuant === 1 ? baseQuant = 1 : baseQuant - 1)}>decrease quantity</button>
         Quantity: <span>{baseQuant}</span>
-        <button onClick={() => { setBaseQuant(baseQuant + 1) }}>increase quantity</button>
+        <button onClick={() => setBaseQuant(baseQuant + 1)}>increase quantity</button>
       </div>
 
       <button onClick={() => {

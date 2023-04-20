@@ -5,7 +5,7 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Product from './components/Product';
 
-import { productsData } from './api/api';
+import { productsData } from './server/api';
 
 import {
   createBrowserRouter,
