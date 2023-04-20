@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux'
 
 const Cart = () => {
     const productData = useSelector((state) => state.coder.productData);
+    const userInfo = useSelector((state) => state.coder.userInfo);
     const [totalAmount, setTotalAmount] = useState("");
+    const [pay, setPay] = useState(false);
 
     useEffect(() => {
         let price = 0;
@@ -15,12 +17,20 @@ const Cart = () => {
         setTotalAmount(price)
     }, [productData])
 
+    const handleCheckout = () => {
+        if (userInfo) {
+            setPay(true)
+        } else {
+            alert("Sign in to checkout")
+        }
+    }
+
     return (
         <div>
             <CartItem />
             <div>
                 <p>Total Amount: ${totalAmount}</p>
-                <button>Check Out</button>
+                <button onClick={handleCheckout}>Check Out</button>
             </div>
 
         </div>
