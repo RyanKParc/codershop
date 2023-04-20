@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/coderSlice';
 
-const ProductsCard = ({ products }) => {
+const ProductsCard = ({ product }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const pageId = products.name.stringValue.toLowerCase();
+    const pageId = product.name.stringValue.toLowerCase();
     const toProduct = () => {
         navigate(`/product/${pageId}`, {
             state: {
@@ -18,18 +18,18 @@ const ProductsCard = ({ products }) => {
     return (
         <div>
             <div onClick={toProduct} className='productscard'>
-                <div className='productscard-name'>{products.name.stringValue}</div>
-                <img className='productscard-image' src={products.image.stringValue} alt="" />
-                <div className='productscard-price'>Price: ${products.price.integerValue}</div>
+                <div className='productscard-name'>{product.name.stringValue}</div>
+                <img className='productscard-image' src={product.image.stringValue} alt="" />
+                <div className='productscard-price'>Price: ${product.price.integerValue}</div>
 
             </div>
             <button onClick={() => {
                 dispatch(addToCart({
-                    name: products.name.stringValue,
-                    image: products.image.stringValue,
-                    price: products.price.integerValue,
-                    category: products.category.stringValue,
-                    description: products.description.stringValue,
+                    name: product.name.stringValue,
+                    image: product.image.stringValue,
+                    price: product.price.integerValue,
+                    category: product.category.stringValue,
+                    description: product.description.stringValue,
                     quantity: 1,
                 }))
             }}>Add to cart</button>
