@@ -25,9 +25,11 @@ const Header = () => {
     return (
         <header>
             <nav>
-                <div className="logo">
-                    <img src={logo} alt="logo" />
-                </div>
+                <Link to='/'>
+                    <div className="logo">
+                        <img src={logo} alt="logo" />
+                    </div>
+                </Link>
                 <div className="nav-menu">
                     <ul>
                         <Link to='/'>
