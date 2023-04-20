@@ -5,7 +5,6 @@ import { useLoaderData } from 'react-router-dom'
 const Home = () => {
     const [products, setProducts] = useState([]);
     const data = useLoaderData();
-    console.log(data.data.documents)
     useEffect(() => {
         setProducts(data.data.documents)
     }, [data]);

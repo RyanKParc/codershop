@@ -4,7 +4,7 @@ import { getRedirectResult } from 'firebase/auth';
 
 import googleLogo from '../assets/google_logo.png'
 
-import { auth, signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect } from "../firebase/firebase.config";
+import { auth, signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect } from "../api/firebase.config";
 
 
 import SignupForm from '../components/SignupForm';

@@ -102,3 +102,28 @@ cursor: pointer;
     width: 100px;
   }
 }
+
+.cartitem-row {
+  display: flex;
+  margin-top: 16px;
+  gap: 32px;
+  align-items: center;
+
+  .cartitem-delete {
+    cursor: pointer;
+  }
+
+  .cartitem-delete:hover {
+    color: white;
+    background-color: var(--primary-color);
+  }
+
+  .cartitem-image {
+    height: 150px;
+    object-fit: contain;
+  }
+
+}
+
+
+

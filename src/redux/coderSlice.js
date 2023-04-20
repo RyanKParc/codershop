@@ -11,19 +11,27 @@ export const coderSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             const item = state.productData.find((item) =>
-
                 item.name === action.payload.name
-
             )
-
 
             if (item) {
                 item.quantity += action.payload.quantity;
             } else {
                 state.productData.push(action.payload)
             }
+        },
+        incrementQuant: (state, action) => {
+            const item = state.productData.find((item) => item.name === action.payload.name);
+            if (item) {
+                item.quantity++;
+            }
+        },
+        decrementQuant: (state, action) => {
+            const item = state.productData.find((item) => item.name === action.payload.name);
+            if (item) {
 
-
+                item.quantity--;
+            }
         },
         addUser: (state, action) => {
             state.userInfo = action.payLoad;
@@ -31,13 +39,22 @@ export const coderSlice = createSlice({
         removeUser: (state) => {
             state.userInfo = null;
         },
+        deleteItem: (state, action) => {
+            state.productData.filter((item) =>
+                item.name !== action.payload
+            )
+        }
+
     }
 
 })
 
 export const {
     addToCart,
+    incrementQuant,
+    decrementQuant,
     addUser,
-    removeUser
+    removeUser,
+    deleteItem,
 } = coderSlice.actions;
 export default coderSlice.reducer;
