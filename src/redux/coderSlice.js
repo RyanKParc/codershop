@@ -22,15 +22,20 @@ export const coderSlice = createSlice({
         },
         incrementQuant: (state, action) => {
             const item = state.productData.find((item) => item.name === action.payload.name);
+
+
             if (item) {
-                item.quantity++;
+                item.quantity++
             }
         },
         decrementQuant: (state, action) => {
             const item = state.productData.find((item) => item.name === action.payload.name);
-            if (item) {
 
-                item.quantity--;
+            if (item) {
+                if (item.quantity === 1) {
+                    item.quantity = 1
+                } else { item.quantity--; }
+
             }
         },
         addUser: (state, action) => {

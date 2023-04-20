@@ -7,7 +7,6 @@ import { deleteItem, incrementQuant, decrementQuant } from '../redux/coderSlice'
 const CartItem = () => {
     const dispatch = useDispatch();
     const productData = useSelector((state) => state.coder.productData);
-    console.log(productData)
     return (
         <div>
             <div>
@@ -24,22 +23,22 @@ const CartItem = () => {
                                 <p>${item.price}</p>
                                 <div>
                                     <button onClick={() => dispatch(decrementQuant({
-                                        name: item.name.stringValue,
-                                        image: item.image.stringValue,
-                                        price: item.price.integerValue,
-                                        category: item.category.stringValue,
-                                        description: item.description.stringValue,
-                                        quantity: item.quantity,
+                                        name: item.name,
+                                        image: item.image,
+                                        price: item.price,
+                                        category: item.category,
+                                        description: item.description,
+                                        quantity: 1,
                                     }
                                     ))}>decrease quantity</button>
-                                    Quantity: <span>{item.quantity}</span>
+                                    <span>Quantity: {item.quantity}</span>
                                     <button onClick={() => dispatch(incrementQuant({
-                                        name: item.name.stringValue,
-                                        image: item.image.stringValue,
-                                        price: item.price.integerValue,
-                                        category: item.category.stringValue,
-                                        description: item.description.stringValue,
-                                        quantity: item.quantity,
+                                        name: item.name,
+                                        image: item.image,
+                                        price: item.price,
+                                        category: item.category,
+                                        description: item.description,
+                                        quantity: 1,
                                     }))}>increase quantity</button>
                                 </div>
                                 <p>${item.quantity * item.price}</p>

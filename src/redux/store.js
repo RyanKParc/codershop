@@ -1,8 +1,33 @@
-import { configureStore } from '@reduxjs/toolkit'
-import coderReducer from './coderSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import coderReducer from './coderSlice';
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+const persistConfig = {
+    key: 'root',
+    version: 1,
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, coderReducer)
 
 export const store = configureStore({
-    reducer: {
-        coder: coderReducer,
-    },
-})
+    reducer: { coder: persistedReducer },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
+});
+
+export let persistor = persistStore(store);
