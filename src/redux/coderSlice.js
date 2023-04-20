@@ -40,7 +40,7 @@ export const coderSlice = createSlice({
             state.userInfo = null;
         },
         deleteItem: (state, action) => {
-            state.productData.filter((item) =>
+            state.productData = state.productData.filter((item) =>
                 item.name !== action.payload
             )
         }

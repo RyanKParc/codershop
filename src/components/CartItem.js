@@ -7,7 +7,7 @@ import { deleteItem, incrementQuant, decrementQuant } from '../redux/coderSlice'
 const CartItem = () => {
     const dispatch = useDispatch();
     const productData = useSelector((state) => state.coder.productData);
-
+    console.log(productData)
     return (
         <div>
             <div>
