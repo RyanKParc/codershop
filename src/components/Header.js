@@ -44,11 +44,12 @@ const Header = () => {
                             </div>
                         </Link>
 
-                        <Link to='/login'>
+                        {!userInfo && <Link to='/login'>
                             <div className="login">
                                 Login
                             </div>
-                        </Link>
+                        </Link>}
+
                         {userInfo && <Link to='/'>
                             <li onClick={handleSignOut}>Log Out</li>
                         </Link>}

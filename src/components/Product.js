@@ -12,6 +12,18 @@ const Product = () => {
     setProductPageInfo(location.state.item);
   }, []);
 
+  const handleProductInfo = (e) => {
+    return (
+      {
+        name: e.name.stringValue,
+        image: e.image.stringValue,
+        price: e.price.integerValue,
+        category: e.category.stringValue,
+        description: e.description.stringValue,
+      }
+    )
+  }
+
   const productName = location.state.item.name.stringValue;
   const productImage = location.state.item.image.stringValue;
   const productDescription = location.state.item.description.stringValue;
@@ -27,20 +39,13 @@ const Product = () => {
         <p>${productPrice}</p>
       </div>
       <div>
-        <button onClick={() => setBaseQuant(baseQuant === 1 ? baseQuant = 1 : baseQuant - 1)}>decrease quantity</button>
+        <button onClick={() => setBaseQuant(baseQuant > 1 ? baseQuant - 1 : 1)}>decrease quantity</button>
         Quantity: <span>{baseQuant}</span>
         <button onClick={() => setBaseQuant(baseQuant + 1)}>increase quantity</button>
       </div>
 
       <button onClick={() => {
-        dispatch(addToCart({
-          name: productPageInfo.name.stringValue,
-          image: productPageInfo.image.stringValue,
-          price: productPageInfo.price.integerValue,
-          category: productPageInfo.category.stringValue,
-          description: productPageInfo.description.stringValue,
-          quantity: baseQuant,
-        }))
+        dispatch(addToCart(handleProductInfo(productPageInfo)))
       }}>Add to cart</button>
     </div>
   );

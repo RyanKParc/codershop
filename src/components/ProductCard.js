@@ -14,6 +14,18 @@ const ProductsCard = ({ product }) => {
             }
         })
     }
+    const handleProductInfo = (e) => {
+        return (
+            {
+                name: e.name.stringValue,
+                image: e.image.stringValue,
+                price: e.price.integerValue,
+                category: e.category.stringValue,
+                description: e.description.stringValue,
+                quantity: 1,
+            }
+        )
+    }
 
     return (
         <div>
@@ -24,14 +36,7 @@ const ProductsCard = ({ product }) => {
 
             </div>
             <button onClick={() => {
-                dispatch(addToCart({
-                    name: product.name.stringValue,
-                    image: product.image.stringValue,
-                    price: product.price.integerValue,
-                    category: product.category.stringValue,
-                    description: product.description.stringValue,
-                    quantity: 1,
-                }))
+                dispatch(addToCart(handleProductInfo(product)))
             }}>Add to cart</button>
         </div>
     )
